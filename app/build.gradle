@@ -69,6 +69,8 @@ dependencies {
     implementation "com.google.accompanist:accompanist-flowlayout:0.17.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07"
 
+    implementation("androidx.paging:paging-runtime:3.1.1")
+
     // Room components
     implementation "androidx.room:room-runtime:2.3.0"
     kapt "androidx.room:room-compiler:2.3.0"

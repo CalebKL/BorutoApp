@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.burutoapp.util.Constants.HERO_DATABASE_TABLE
 
-@Entity(tableName = HERO_DATABASE_TABLE, )
+@Entity(tableName = HERO_DATABASE_TABLE)
 data class Hero(
     @PrimaryKey(autoGenerate = false)
     val id: Int,
