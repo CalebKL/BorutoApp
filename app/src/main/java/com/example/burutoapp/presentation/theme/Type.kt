@@ -1,4 +1,4 @@
-package com.example.burutoapp.ui.theme
+package com.example.burutoapp.presentation.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

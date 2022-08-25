@@ -1,4 +1,4 @@
-package com.example.burutoapp.ui.theme
+package com.example.burutoapp.presentation.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
