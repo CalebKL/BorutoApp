@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">BurutoApp</string>
     <string name="logo_image">Logo image</string>
+    <string name="welcome_image">Welcome Image</string>
 </resources>
