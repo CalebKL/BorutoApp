@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -22,7 +23,7 @@ import com.example.burutoapp.presentation.theme.Purple500
 import com.example.burutoapp.presentation.theme.Purple700
 
 @Composable
-fun Splash() {
+fun Splash(rotate: Float) {
     if (isSystemInDarkTheme()){
         Box(
             contentAlignment = Alignment.Center,
@@ -31,8 +32,12 @@ fun Splash() {
                 .fillMaxSize()
         )
         {
-            Image(painter = painterResource(id = R.drawable.ic_logo), contentDescription = stringResource(
-                R.string.logo_image))
+            Image(
+                modifier= Modifier.rotate(degrees = rotate),
+                painter = painterResource(id = R.drawable.ic_logo),
+                contentDescription = stringResource(
+                    R.string.logo_image)
+            )
         }
     }else{
         Box(
@@ -42,8 +47,12 @@ fun Splash() {
                 .fillMaxSize()
         )
         {
-            Image(painter = painterResource(id = R.drawable.ic_logo), contentDescription = stringResource(
-                R.string.logo_image))
+            Image(
+                modifier= Modifier.rotate(degrees = rotate),
+                painter = painterResource(id = R.drawable.ic_logo),
+                contentDescription = stringResource(
+                    R.string.logo_image)
+            )
         }
     }
 }
@@ -51,11 +60,11 @@ fun Splash() {
 @Preview
 @Composable
 fun SplashPreview() {
-    Splash()
+    Splash(rotate = 0f)
 }
 
 @Preview(uiMode = UI_MODE_NIGHT_YES)
 @Composable
 fun SplashPreviewDark() {
-    Splash()
+    Splash(rotate = 0f)
 }

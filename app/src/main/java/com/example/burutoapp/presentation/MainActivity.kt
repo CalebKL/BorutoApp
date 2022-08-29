@@ -9,7 +9,6 @@ import com.example.burutoapp.navigation.SetupNavigation
 import com.example.burutoapp.presentation.theme.BurutoAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private lateinit var navController: NavHostController
