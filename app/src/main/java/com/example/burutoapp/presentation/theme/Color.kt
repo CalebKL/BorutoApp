@@ -14,11 +14,23 @@ val DarkGray = Color(0xFF2A2A2A)
 
 val Colors.welcomeScreenBackground
 @Composable
-get() = if (isLight) LightGray else DarkGray
+get() = if (isLight) Color.White else DarkGray
 
 val Colors.titleColor
     @Composable
     get() = if (isLight) DarkGray else LightGray
+
+val Colors.activeIndicatorColor
+    @Composable
+    get() = if (isLight) Purple500 else Purple700
+
+val Colors.inactiveIndicatorColor
+    @Composable
+    get() = if (isLight) LightGray else DarkGray
+
+val Colors.buttonBackgroundColor
+    @Composable
+    get() = if (isLight) Purple500 else Purple700
 
 val Colors.textColor
     @Composable
