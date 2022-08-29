@@ -1,4 +1,4 @@
-package com.example.burutoapp.data.preference
+package com.example.burutoapp.data.repository
 
 import android.content.Context
 import androidx.datastore.core.DataStore

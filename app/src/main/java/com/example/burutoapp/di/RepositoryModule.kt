@@ -1,7 +1,7 @@
 package com.example.burutoapp.di
 
 import android.content.Context
-import com.example.burutoapp.data.preference.DataStoreOperationImp
+import com.example.burutoapp.data.repository.DataStoreOperationImp
 import com.example.burutoapp.domain.repository.DataStoreOperations
 import dagger.Module
 import dagger.Provides
