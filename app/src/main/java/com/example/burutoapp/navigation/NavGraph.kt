@@ -7,6 +7,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.burutoapp.presentation.homescreen.HomeScreen
 import com.example.burutoapp.presentation.splash.SplashScreen
 import com.example.burutoapp.presentation.welcome.WelcomeScreen
 import com.example.burutoapp.util.Constants.DETAILS_ARGUMENTS_KEY
@@ -27,7 +28,7 @@ fun SetupNavigation(navController: NavHostController) {
             WelcomeScreen(navController = navController)
         }
         composable(route = Screen.Home.route){
-
+            HomeScreen()
         }
         composable(
             route = Screen.Detail.route,

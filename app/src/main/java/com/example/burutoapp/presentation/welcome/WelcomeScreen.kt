@@ -16,9 +16,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.example.burutoapp.R
 import com.example.burutoapp.domain.models.OnBoarding
+import com.example.burutoapp.navigation.Screen
 import com.example.burutoapp.presentation.theme.*
 import com.example.burutoapp.util.Constants.CURRENT_PAGE
 import com.example.burutoapp.util.Constants.ON_BOARDING_PAGES
@@ -26,7 +28,10 @@ import com.google.accompanist.pager.*
 
 @ExperimentalPagerApi
 @Composable
-fun WelcomeScreen(navController: NavHostController) {
+fun WelcomeScreen(
+    navController: NavHostController,
+    welcomeViewModel: WelcomeViewModel = viewModel()
+) {
     val pages = listOf(
         OnBoarding.First,
         OnBoarding.Second,
@@ -60,7 +65,9 @@ fun WelcomeScreen(navController: NavHostController) {
             pagerState = pagerState,
             modifier = Modifier.weight(2f)
         ) {
-            
+            navController.popBackStack()
+            navController.navigate(route = Screen.Home.route)
+            welcomeViewModel.saveOnBoardingState(completed = true)
         }
     }
 }
@@ -107,7 +114,7 @@ fun PagerScreen(onBoarding: OnBoarding) {
 @Composable
 fun FinishButton(
     modifier: Modifier,
-    pagerState:PagerState,
+    pagerState: PagerState,
     onFinishClick:() ->Unit
 ) {
     Row(
