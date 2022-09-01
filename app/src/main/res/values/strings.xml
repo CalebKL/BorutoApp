@@ -3,4 +3,6 @@
     <string name="logo_image">Logo image</string>
     <string name="welcome_image">Welcome Image</string>
     <string name="finish_button">Finish</string>
+    <string name="explore_title">Explore</string>
+    <string name="search_icon">Search Icon</string>
 </resources>
