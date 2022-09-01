@@ -9,17 +9,21 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.burutoapp.presentation.homescreen.HomeScreen
 import com.example.burutoapp.presentation.splash.SplashScreen
+import com.example.burutoapp.presentation.splash.SplashViewModel
 import com.example.burutoapp.presentation.welcome.WelcomeScreen
+import com.example.burutoapp.presentation.welcome.WelcomeViewModel
 import com.example.burutoapp.util.Constants.DETAILS_ARGUMENTS_KEY
 import com.google.accompanist.pager.ExperimentalPagerApi
 
 
 @ExperimentalPagerApi
 @Composable
-fun SetupNavigation(navController: NavHostController) {
+fun SetupNavigation(
+    navController: NavHostController
+) {
     NavHost(
         navController = navController,
-        startDestination = Screen.Welcome.route
+        startDestination = Screen.Splash.route
     ){
         composable(route = Screen.Splash.route){
             SplashScreen(navController = navController)

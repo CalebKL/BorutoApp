@@ -32,7 +32,7 @@ class DataStoreOperationImp @Inject constructor(
         }
     }
 
-    override suspend fun readOnBoardingState(): Flow<Boolean> {
+    override fun readOnBoardingState(): Flow<Boolean> {
         return dataStore.data
             .catch {exception->
                 if (exception is IOException){

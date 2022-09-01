@@ -16,6 +16,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.example.burutoapp.R
@@ -30,7 +31,7 @@ import com.google.accompanist.pager.*
 @Composable
 fun WelcomeScreen(
     navController: NavHostController,
-    welcomeViewModel: WelcomeViewModel = viewModel()
+    welcomeViewModel: WelcomeViewModel = hiltViewModel(),
 ) {
     val pages = listOf(
         OnBoarding.First,

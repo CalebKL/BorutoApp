@@ -14,7 +14,7 @@ class WelcomeViewModel @Inject constructor(
 ):ViewModel() {
     fun saveOnBoardingState(completed:Boolean){
         viewModelScope.launch(Dispatchers.IO) {
-            useCases.saveOnBoardingUseCase(completed)
+            useCases.saveOnBoardingUseCase(completed= completed)
         }
     }
 }
