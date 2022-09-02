@@ -34,10 +34,13 @@ class HeroRemoteMediator @Inject constructor(
             }
             LoadType.APPEND ->{
                 val remoteKeys = getRemoteKeysForLastTime(state)
+                val nextPage = remoteKeys?.nextPage
+                    ?: return MediatorResult.Success(endOfPaginationReached = remoteKeys != null)
+                nextPage
             }
         }
         return try {
-            val response = borutoApi.getAllHeroes(page = )
+            val response = borutoApi.getAllHeroes(page = page)
             if (response.heroes.isNotEmpty()){
                 heroDatabase.withTransaction {
                     if ( loadType== LoadType.REFRESH){
