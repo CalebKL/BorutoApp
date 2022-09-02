@@ -11,5 +11,4 @@ object Constants {
     const val PREFERENCE_KEY = "onBoarding_completed"
     const val BASE_URL = "http://10.0.2.2:8080"
     const val ITEM_PER_PAGE =3
-    const val LEFT_WIDTH =2
 }
