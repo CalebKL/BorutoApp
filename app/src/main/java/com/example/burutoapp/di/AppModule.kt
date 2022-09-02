@@ -26,4 +26,4 @@ object AppModule {
             HERO_DATABASE
         ).build()
     }
-    }
+}
