@@ -12,6 +12,7 @@ fun HomeScreen(
     homeViewModel: HomeViewModel = hiltViewModel()
 ) {
     val allHeroes = homeViewModel.getAllHeroes.collectAsLazyPagingItems()
+
     Scaffold(
         topBar = {
             HomeTopAppBar(onSearchClicked = {})
