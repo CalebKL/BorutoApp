@@ -9,8 +9,8 @@ import com.example.burutoapp.domain.models.HeroRemoteKeys
 @Dao
 interface HeroRemoteKeysDao {
 
-    @Query("SELECT * FROM HERO_REMOTE_KEYS_TABLE WHERE id =:id ")
-    suspend fun getRemoteKeys(id:Int): HeroRemoteKeys?
+    @Query("SELECT * FROM HERO_REMOTE_KEYS_TABLE WHERE id =:heroId")
+    suspend fun getRemoteKeys(heroId:Int): HeroRemoteKeys?
 
     @Insert(onConflict= OnConflictStrategy.REPLACE)
     suspend fun addAllRemoteKeys(heroRemoteKey: List<HeroRemoteKeys>)
