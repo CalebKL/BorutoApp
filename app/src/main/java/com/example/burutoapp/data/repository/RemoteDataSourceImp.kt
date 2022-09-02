@@ -23,7 +23,7 @@ class RemoteDataSourceImp(
             config = PagingConfig(pageSize = ITEM_PER_PAGE),
             remoteMediator = HeroRemoteMediator(
                 borutoApi = borutoApi,
-                heroDatabase = HeroDatabase
+                heroDatabase = heroDatabase
             ),
             pagingSourceFactory = pagingSourceFactory
         ).flow
