@@ -42,7 +42,7 @@ fun FilledStar(
     scaleFactor: Float
 ) {
     Canvas(modifier =Modifier.size(CANVAS_STAR_SIZE)){
-        val canvasSize = this.size
+        val canvasSize = size
        scale(scale= scaleFactor){
            val pathWidth = starPathBounds.width
            val pathHeight = starPathBounds.height
@@ -66,7 +66,7 @@ fun HalfFilledStar(
     scaleFactor: Float
 ) {
     Canvas(modifier =Modifier.size(CANVAS_STAR_SIZE)){
-        val canvasSize = this.size
+        val canvasSize = size
         scale(scale= scaleFactor){
             val pathWidth = starPathBounds.width
             val pathHeight = starPathBounds.height
@@ -99,7 +99,7 @@ fun EmptyStar(
     scaleFactor: Float
 ) {
     Canvas(modifier =Modifier.size(CANVAS_STAR_SIZE)){
-        val canvasSize = this.size
+        val canvasSize = size
         scale(scale= scaleFactor){
             val pathWidth = starPathBounds.width
             val pathHeight = starPathBounds.height
