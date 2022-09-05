@@ -10,9 +10,8 @@ import com.example.burutoapp.presentation.splash.components.Splash
 
 @Composable
 fun SplashScreen(
-    navController: NavHostController,
-    splashViewModel: SplashViewModel = hiltViewModel(),
-) {
+    navController: NavHostController) {
+    val splashViewModel =hiltViewModel<SplashViewModel>()
     val rotate = remember { Animatable(0f) }
 
     val onBoardingCompleted by splashViewModel.onBoardingCompleted.collectAsState()

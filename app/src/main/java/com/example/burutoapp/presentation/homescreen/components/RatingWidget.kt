@@ -162,7 +162,7 @@ fun CalculateStars(rating: Double): Map<String, Int>{
 
     LaunchedEffect(key1 = rating){
         val( firstNumber, secondNumber) = rating.toString()
-            .split("")
+            .split(".")
             .map {it.toInt()}
 
         if (firstNumber in 0..5 && secondNumber in 0..9){

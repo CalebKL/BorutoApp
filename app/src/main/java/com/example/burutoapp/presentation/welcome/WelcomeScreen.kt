@@ -22,6 +22,7 @@ import androidx.navigation.NavHostController
 import com.example.burutoapp.R
 import com.example.burutoapp.domain.models.OnBoarding
 import com.example.burutoapp.navigation.Screen
+import com.example.burutoapp.presentation.splash.SplashViewModel
 import com.example.burutoapp.presentation.theme.*
 import com.example.burutoapp.util.Constants.CURRENT_PAGE
 import com.example.burutoapp.util.Constants.ON_BOARDING_PAGES
@@ -29,10 +30,8 @@ import com.google.accompanist.pager.*
 
 @ExperimentalPagerApi
 @Composable
-fun WelcomeScreen(
-    navController: NavHostController,
-    welcomeViewModel: WelcomeViewModel = hiltViewModel(),
-) {
+fun WelcomeScreen(navController: NavHostController) {
+    val welcomeViewModel =hiltViewModel<WelcomeViewModel>()
     val pages = listOf(
         OnBoarding.First,
         OnBoarding.Second,

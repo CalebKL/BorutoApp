@@ -12,9 +12,8 @@ import com.example.burutoapp.presentation.homescreen.components.RatingWidget
 import com.example.burutoapp.presentation.theme.EXTRA_LARGE_PADDING
 
 @Composable
-fun HomeScreen(
-    homeViewModel: HomeViewModel = hiltViewModel()
-) {
+fun HomeScreen() {
+    val homeViewModel= hiltViewModel<HomeViewModel>()
     val allHeroes = homeViewModel.getAllHeroes.collectAsLazyPagingItems()
 
     Scaffold(
