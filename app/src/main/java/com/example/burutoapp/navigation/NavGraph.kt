@@ -7,6 +7,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import coil.annotation.ExperimentalCoilApi
 import com.example.burutoapp.presentation.homescreen.HomeScreen
 import com.example.burutoapp.presentation.splash.SplashScreen
 import com.example.burutoapp.presentation.splash.SplashViewModel
@@ -17,6 +18,7 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 
 
 @ExperimentalPagerApi
+@ExperimentalCoilApi
 @Composable
 fun SetupNavigation(
     navController: NavHostController

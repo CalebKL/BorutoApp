@@ -1,18 +1,15 @@
 package com.example.burutoapp.presentation.homescreen
 
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.paging.compose.collectAsLazyPagingItems
+import coil.annotation.ExperimentalCoilApi
 import com.example.burutoapp.presentation.common.ScreenContent
 import com.example.burutoapp.presentation.homescreen.components.HomeTopAppBar
-import com.example.burutoapp.presentation.homescreen.components.RatingWidget
-import com.example.burutoapp.presentation.theme.EXTRA_LARGE_PADDING
 
+@ExperimentalCoilApi
 @Composable
 fun HomeScreen(
     navController: NavHostController

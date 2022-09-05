@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import coil.annotation.ExperimentalCoilApi
 import com.example.burutoapp.navigation.SetupNavigation
 import com.example.burutoapp.presentation.splash.SplashViewModel
 import com.example.burutoapp.presentation.theme.BurutoAppTheme
@@ -13,6 +14,7 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import dagger.hilt.android.AndroidEntryPoint
 
 @ExperimentalPagerApi
+@ExperimentalCoilApi
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
