@@ -15,10 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.compose.rememberNavController
 import com.example.burutoapp.R
-import com.example.burutoapp.navigation.Screen
-import com.example.burutoapp.presentation.splash.SplashScreen
 import com.example.burutoapp.presentation.theme.Purple500
 import com.example.burutoapp.presentation.theme.Purple700
 
@@ -34,7 +31,7 @@ fun Splash(rotate: Float) {
         {
             Image(
                 modifier= Modifier.rotate(degrees = rotate),
-                painter = painterResource(id = R.drawable.ic_logo),
+                painter = painterResource(id = R.drawable.ic_placeholder),
                 contentDescription = stringResource(
                     R.string.logo_image)
             )
@@ -49,7 +46,7 @@ fun Splash(rotate: Float) {
         {
             Image(
                 modifier= Modifier.rotate(degrees = rotate),
-                painter = painterResource(id = R.drawable.ic_logo),
+                painter = painterResource(id = R.drawable.ic_placeholder),
                 contentDescription = stringResource(
                     R.string.logo_image)
             )

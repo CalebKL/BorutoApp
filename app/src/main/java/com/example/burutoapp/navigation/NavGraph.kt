@@ -32,7 +32,7 @@ fun SetupNavigation(
             WelcomeScreen(navController = navController)
         }
         composable(route = Screen.Home.route){
-            HomeScreen()
+            HomeScreen(navController)
         }
         composable(
             route = Screen.Detail.route,
