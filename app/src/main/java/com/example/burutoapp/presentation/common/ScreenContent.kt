@@ -59,7 +59,7 @@ fun HeroItem(
         contentAlignment = Alignment.BottomEnd,
     ) {
         Surface(
-            shape = Shapes.large
+            shape = RoundedCornerShape(size = LARGE_PADDING)
         ) {
             Image(
                 modifier = Modifier.fillMaxSize(),
