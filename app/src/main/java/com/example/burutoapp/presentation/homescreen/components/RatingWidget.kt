@@ -1,9 +1,9 @@
 package com.example.burutoapp.presentation.homescreen.components
 
+import android.util.Log
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.size
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.geometry.Size
@@ -114,6 +114,43 @@ fun EmptyStar(
             }
         }
     }
+}
+
+@Composable
+fun CalculateStars(rating: Double): Map<String, Int>{
+    val maxStars by remember { mutableStateOf(5) }
+    var halfFilledStar by remember { mutableStateOf(0) }
+    var filledStars by remember { mutableStateOf(0) }
+    var emptyStars by remember { mutableStateOf(0) }
+
+    LaunchedEffect(key1 = rating){
+        val( firstNumber, secondNumber) = rating.toString()
+            .split("")
+            .map {it.toInt()}
+
+        if (firstNumber in 0..5 && secondNumber in 0..9){
+            filledStars =firstNumber
+            if (secondNumber in 1..5){
+                halfFilledStar++
+            }
+            if (secondNumber in 6..9){
+                filledStars ++
+            }
+            if(firstNumber == 5 && secondNumber >0){
+                emptyStars = 5
+                filledStars = 0
+                halfFilledStar = 0
+            }
+        }else{
+            Log.d("RatingWidget", "Invalid rating Number")
+        }
+    }
+    emptyStars = maxStars - (filledStars + halfFilledStar)
+    return  mapOf(
+        "filledStars" to filledStars,
+        "halfFilledStar" to halfFilledStar,
+        "emptyStars" to emptyStars
+    )
 }
 
 @Preview(showBackground = true)
