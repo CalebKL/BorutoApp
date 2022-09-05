@@ -51,6 +51,24 @@ fun RatingWidget(
                 )
             }
         }
+        result["halfFilledStar"]?.let {
+            repeat(it){
+                HalfFilledStar(
+                    starPath = starPath,
+                    starPathBounds = startPathBounce,
+                    scaleFactor = 3f
+                )
+            }
+        }
+        result["emptyStars"]?.let {
+            repeat(it){
+                EmptyStar(
+                    starPath = starPath,
+                    starPathBounds = startPathBounce,
+                    scaleFactor = 3f
+                )
+            }
+        }
     }
 }
 
