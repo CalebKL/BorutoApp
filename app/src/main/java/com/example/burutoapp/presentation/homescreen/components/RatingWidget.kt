@@ -2,6 +2,8 @@ package com.example.burutoapp.presentation.homescreen.components
 
 import android.util.Log
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -15,8 +17,10 @@ import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.graphics.vector.PathParser
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import com.example.burutoapp.R
 import com.example.burutoapp.presentation.theme.CANVAS_STAR_SIZE
+import com.example.burutoapp.presentation.theme.EXTRA_SMALL_PADDING
 import com.example.burutoapp.presentation.theme.StarColor
 
 
@@ -24,15 +28,30 @@ import com.example.burutoapp.presentation.theme.StarColor
 fun RatingWidget(
     modifier: Modifier,
     rating:Double,
-    scaleFactor: Float = 3f
+    scaleFactor: Float = 3f,
+    spaceBetween: Dp = EXTRA_SMALL_PADDING
 ) {
+    val result = CalculateStars(rating = rating)
     val starStringPath = stringResource(id = R.string.star_path)
     val starPath = remember { PathParser().parsePathString(pathData = starStringPath).toPath() }
 
     val startPathBounce = remember {
         starPath.getBounds()
     }
-    FilledStar(starPath = starPath, starPathBounds =startPathBounce, scaleFactor = 3f)
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(EXTRA_SMALL_PADDING)
+    ){
+        result["filledStars"]?.let {
+            repeat(it){
+                FilledStar(
+                    starPath = starPath,
+                    starPathBounds = startPathBounce,
+                    scaleFactor = 3f
+                )
+            }
+        }
+    }
 }
 
 @Composable
