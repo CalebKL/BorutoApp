@@ -52,7 +52,18 @@ fun ShimmerItem() {
                ){}
                Spacer(modifier = Modifier.padding(EXTRA_SMALL_PADDING))
            }
-
+           Row(modifier = Modifier.fillMaxWidth()){
+               repeat(5){
+                   Surface(
+                       modifier = Modifier
+                           .size(PLACE_HOLDER_STAR_SHIMMER_EFFECT),
+                       color = if (isSystemInDarkTheme())
+                           shimmerDarkGray else shimmerMediumGray,
+                       shape = RoundedCornerShape(size = SMALL_PADDING)
+                   ){}
+                   Spacer(modifier = Modifier.padding(SMALL_PADDING))
+               }
+           }
        }
     }
 }
