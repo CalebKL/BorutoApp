@@ -1,6 +1,7 @@
 package com.example.burutoapp.presentation.homescreen.components
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import android.widget.Space
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -38,8 +39,20 @@ fun ShimmerItem() {
                color = if (isSystemInDarkTheme())
                    shimmerDarkGray else shimmerMediumGray,
                shape = RoundedCornerShape(size = SMALL_PADDING)
-           ){
+           ){}
+           Spacer(modifier = Modifier.padding(SMALL_PADDING))
+           repeat(3){
+               Surface(
+                   modifier = Modifier
+                       .fillMaxWidth()
+                       .height(ABOUT_PLACE_HOLDER),
+                   color = if (isSystemInDarkTheme())
+                       shimmerDarkGray else shimmerMediumGray,
+                   shape = RoundedCornerShape(size = SMALL_PADDING)
+               ){}
+               Spacer(modifier = Modifier.padding(EXTRA_SMALL_PADDING))
            }
+
        }
     }
 }
