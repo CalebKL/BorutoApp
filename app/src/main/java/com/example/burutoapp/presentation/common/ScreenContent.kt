@@ -1,5 +1,6 @@
 package com.example.burutoapp.presentation.common
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -39,6 +40,7 @@ fun ScreenContent(
     navController: NavHostController,
     heroes: LazyPagingItems<Hero>
 ) {
+    Log.d("ScreenContent", heroes.loadState.toString())
     LazyColumn(
         contentPadding = PaddingValues(all = SMALL_PADDING),
         verticalArrangement = Arrangement.spacedBy(SMALL_PADDING)
@@ -62,7 +64,7 @@ fun HeroItem(
     navController: NavHostController,
     hero: Hero
 ) {
-    val painter = rememberImagePainter(data = "$BASE_URL${hero.id}"){
+    val painter = rememberImagePainter(data = "$BASE_URL${hero.image}"){
         placeholder(R.drawable.ic_placeholder)
         error(R.drawable.ic_placeholder)
     }
