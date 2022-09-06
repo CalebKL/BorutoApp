@@ -2,12 +2,15 @@ package com.example.burutoapp.presentation.homescreen.components
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.widget.Space
+import androidx.compose.animation.core.*
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.burutoapp.presentation.theme.*
@@ -18,7 +21,23 @@ fun ShimmerEffect() {
 }
 
 @Composable
-fun ShimmerItem() {
+fun AnimatedShimmerItem() {
+    val transition = rememberInfiniteTransition()
+    val alphaAnim by transition.animateFloat(
+        initialValue = 1f,
+        targetValue = 0f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(
+                durationMillis = 500,
+                easing = FastOutLinearInEasing
+            ),
+            repeatMode = RepeatMode.Reverse
+        )
+    )
+    ShimmerItem(alpha = alphaAnim)
+}
+@Composable
+fun ShimmerItem(alpha: Float) {
    Surface(
        modifier = Modifier
            .fillMaxWidth()
@@ -35,7 +54,8 @@ fun ShimmerItem() {
            Surface(
                modifier = Modifier
                    .fillMaxWidth(0.5f)
-                   .height(SHIMMER_HEIGHT),
+                   .height(SHIMMER_HEIGHT)
+                   .alpha(alpha = alpha),
                color = if (isSystemInDarkTheme())
                    shimmerDarkGray else shimmerMediumGray,
                shape = RoundedCornerShape(size = SMALL_PADDING)
@@ -45,6 +65,7 @@ fun ShimmerItem() {
                Surface(
                    modifier = Modifier
                        .fillMaxWidth()
+                       .alpha(alpha = alpha)
                        .height(ABOUT_PLACE_HOLDER),
                    color = if (isSystemInDarkTheme())
                        shimmerDarkGray else shimmerMediumGray,
@@ -56,7 +77,8 @@ fun ShimmerItem() {
                repeat(5){
                    Surface(
                        modifier = Modifier
-                           .size(PLACE_HOLDER_STAR_SHIMMER_EFFECT),
+                           .size(PLACE_HOLDER_STAR_SHIMMER_EFFECT)
+                           .alpha(alpha = alpha),
                        color = if (isSystemInDarkTheme())
                            shimmerDarkGray else shimmerMediumGray,
                        shape = RoundedCornerShape(size = SMALL_PADDING)
@@ -72,13 +94,13 @@ fun ShimmerItem() {
 @Preview
 @Composable
 fun ShimmerItemPreview() {
-    ShimmerItem()
+    AnimatedShimmerItem()
 }
 
 @Preview(uiMode = UI_MODE_NIGHT_YES)
 @Composable
 fun ShimmerItemPreview2() {
-    ShimmerItem()
+    AnimatedShimmerItem()
 }
 
 
