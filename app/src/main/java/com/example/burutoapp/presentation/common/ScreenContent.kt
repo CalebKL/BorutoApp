@@ -23,6 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.items
 import coil.annotation.ExperimentalCoilApi
@@ -31,6 +32,7 @@ import com.example.burutoapp.R
 import com.example.burutoapp.domain.models.Hero
 import com.example.burutoapp.navigation.Screen
 import com.example.burutoapp.presentation.homescreen.components.RatingWidget
+import com.example.burutoapp.presentation.homescreen.components.ShimmerEffect
 import com.example.burutoapp.presentation.theme.*
 import com.example.burutoapp.util.Constants.BASE_URL
 
@@ -40,24 +42,53 @@ fun ScreenContent(
     navController: NavHostController,
     heroes: LazyPagingItems<Hero>
 ) {
-    Log.d("ScreenContent", heroes.loadState.toString())
-    LazyColumn(
-        contentPadding = PaddingValues(all = SMALL_PADDING),
-        verticalArrangement = Arrangement.spacedBy(SMALL_PADDING)
-    ){
-        items(
-            items = heroes,
-            key = { hero->
-                hero.id
-            }
-        ){ hero->
-            hero?.let {
-                HeroItem(navController = navController, hero = it)
+    val result = handlePagingRequest(heroes = heroes)
+    if (result){
+        Log.d("ScreenContent", heroes.loadState.toString())
+        LazyColumn(
+            contentPadding = PaddingValues(all = SMALL_PADDING),
+            verticalArrangement = Arrangement.spacedBy(SMALL_PADDING)
+        ){
+            items(
+                items = heroes,
+                key = { hero->
+                    hero.id
+                }
+            ){ hero->
+                hero?.let {
+                    HeroItem(navController = navController, hero = it)
+                }
             }
         }
     }
 }
 
+
+@Composable
+fun handlePagingRequest(
+    heroes: LazyPagingItems<Hero>
+): Boolean {
+   heroes.apply {
+       val error = when{
+           loadState.append is LoadState.Error -> loadState.append as LoadState.Error
+           loadState.prepend is LoadState.Error -> loadState.prepend as LoadState.Error
+           loadState.refresh is LoadState.Error -> loadState.refresh as LoadState.Error
+           else -> null
+       }
+       return when{
+           loadState.refresh is LoadState.Loading ->{
+               ShimmerEffect()
+               false
+           }
+           error != null ->{
+               false
+           }
+           else-> {
+               true
+           }
+       }
+   }
+}
 @ExperimentalCoilApi
 @Composable
 fun HeroItem(
