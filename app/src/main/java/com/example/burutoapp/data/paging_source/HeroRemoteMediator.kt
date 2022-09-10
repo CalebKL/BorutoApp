@@ -1,5 +1,6 @@
 package com.example.burutoapp.data.paging_source
 
+import android.util.Log
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
@@ -25,7 +26,7 @@ class HeroRemoteMediator @Inject constructor(
     override suspend fun initialize(): InitializeAction {
         val currentTime = System.currentTimeMillis()
         val lastUpdated = heroRemoteKeysDao.getRemoteKeys(heroId = 1)?.lastUpdated?:0L
-        val cacheTimeout = 5
+        val cacheTimeout = 1440
 
         val diffInMinutes = (currentTime -lastUpdated)/ 1000 / 60
         return if (diffInMinutes.toInt() <= cacheTimeout){
@@ -91,11 +92,11 @@ class HeroRemoteMediator @Inject constructor(
         }
     }
 
-    private fun parseMillis(millis:Long): String{
-        val date = Date(millis)
-        val format = SimpleDateFormat("yyyy.MM.dd.HH.mm", Locale.ROOT)
-        return format.format(date)
-    }
+//    private fun parseMillis(millis:Long): String{
+//        val date = Date(millis)
+//        val format = SimpleDateFormat("yyyy.MM.dd.HH.mm", Locale.ROOT)
+//        return format.format(date)
+//    }
 
     private suspend fun getRemoteKeysForFirstItem(state: PagingState<Int, Hero>
     ): HeroRemoteKeys?{
