@@ -9,6 +9,8 @@ import com.example.burutoapp.data.local.HeroDatabase
 import com.example.burutoapp.data.remote.BorutoApi
 import com.example.burutoapp.domain.models.Hero
 import com.example.burutoapp.domain.models.HeroRemoteKeys
+import java.text.SimpleDateFormat
+import java.util.*
 import javax.inject.Inject
 
 @ExperimentalPagingApi
@@ -87,6 +89,12 @@ class HeroRemoteMediator @Inject constructor(
         return state.pages.lastOrNull{it.data.isNotEmpty()}?.data?.lastOrNull()?.let {hero ->
             heroRemoteKeysDao.getRemoteKeys(heroId = hero.id)
         }
+    }
+
+    private fun parseMillis(millis:Long): String{
+        val date = Date(millis)
+        val format = SimpleDateFormat("yyyy.MM.dd.HH.mm", Locale.ROOT)
+        return format.format(date)
     }
 
     private suspend fun getRemoteKeysForFirstItem(state: PagingState<Int, Hero>
