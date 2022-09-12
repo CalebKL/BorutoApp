@@ -8,7 +8,12 @@ import androidx.compose.runtime.Composable
 fun SearchScreen() {
     Scaffold(
         topBar = {
-            SearchTopBar()
+            SearchTopBar(
+                text = "Search",
+                onTextChanged = {},
+                onSearchedClicked = {},
+                onCloseClicked = {}
+            )
         }
     ){}
 }
