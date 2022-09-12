@@ -27,7 +27,7 @@ fun SearchTopBar(
     text: String,
     onTextChanged:(String)-> Unit,
     onSearchedClicked:(String)->Unit,
-    onCloseClicked:(String)->Unit
+    onCloseClicked:()->Unit
 ){
     SearchWidget(text = text, onTextChanged = onTextChanged, onSearchedClicked = onSearchedClicked , onCloseClicked = onCloseClicked)
 }
@@ -37,7 +37,7 @@ fun SearchWidget(
     text: String,
     onTextChanged:(String)-> Unit,
     onSearchedClicked:(String)->Unit,
-    onCloseClicked:(String)->Unit
+    onCloseClicked:()->Unit
 ){
     Surface(
         modifier = Modifier
@@ -78,7 +78,13 @@ fun SearchWidget(
             },
             trailingIcon = {
                 IconButton(
-                    onClick = {}
+                    onClick = {
+                        if (text.isNotEmpty()){
+                            onTextChanged("")
+                        }else {
+                            onCloseClicked()
+                        }
+                    }
                 ){
                     Icon(
                         imageVector = Icons.Default.Close,

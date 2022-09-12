@@ -46,7 +46,7 @@ fun SetupNavigation(
 
         }
         composable(route = Screen.Search.route){
-            SearchScreen()
+            SearchScreen(navController = navController)
         }
     }
 }
