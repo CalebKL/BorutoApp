@@ -1,0 +1,10 @@
+package com.example.burutoapp.presentation.search
+
+import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.ViewModel
+
+class SearchViewModel:ViewModel() {
+    private val _searchQuery = mutableStateOf("")
+    val searchQuery = _searchQuery
+
+}
