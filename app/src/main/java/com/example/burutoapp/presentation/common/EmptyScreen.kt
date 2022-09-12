@@ -40,19 +40,28 @@ fun EmptyScreen(error: LoadState.Error) {
     LaunchedEffect(key1 = true){
         startAnimation = true
     }
+    EmptyContent(alphaAnim = alphaAnim, icon = icon, message = message)
+}
+
+@Composable
+fun EmptyContent(
+    alphaAnim: Float,
+    icon: Int,
+    message: String,
+) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally)
     {
-       Icon(
-           modifier = Modifier
-               .size(ICON_SIZE)
-               .alpha(alpha = alphaAnim),
-           painter = painterResource(id = icon),
-           contentDescription = stringResource(id = R.string.error_icon),
-           tint = if (isSystemInDarkTheme()) Color.LightGray else Color.DarkGray
-       )
+        Icon(
+            modifier = Modifier
+                .size(ICON_SIZE)
+                .alpha(alpha = alphaAnim),
+            painter = painterResource(id = icon),
+            contentDescription = stringResource(id = R.string.error_icon),
+            tint = if (isSystemInDarkTheme()) Color.LightGray else Color.DarkGray
+        )
         Spacer(modifier = Modifier.height(SMALL_PADDING))
         Text(
             modifier = Modifier.alpha(alpha = alphaAnim),
@@ -81,5 +90,5 @@ fun parseErrorMessage(message:String): String{
 @Preview(showBackground = true)
 @Composable
 fun EmptyPreview() {
-    EmptyScreen(error = LoadState.Error(error = SocketTimeoutException()))
+    EmptyContent(alphaAnim = 1f, icon = R.drawable.ic_network_error, message = "Network Error")
 }
