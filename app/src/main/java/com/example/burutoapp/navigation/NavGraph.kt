@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import coil.annotation.ExperimentalCoilApi
+import com.example.burutoapp.presentation.details.DetailsScreen
 import com.example.burutoapp.presentation.homescreen.HomeScreen
 import com.example.burutoapp.presentation.search.SearchScreen
 import com.example.burutoapp.presentation.splash.SplashScreen
@@ -43,7 +44,7 @@ fun SetupNavigation(
                 type= NavType.IntType
             })
         ){
-
+            DetailsScreen(navController = navController)
         }
         composable(route = Screen.Search.route){
             SearchScreen(navController = navController)
