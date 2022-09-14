@@ -6,6 +6,7 @@ import com.example.burutoapp.data.repository.Repository
 import com.example.burutoapp.domain.repository.DataStoreOperations
 import com.example.burutoapp.domain.use_case.UseCases
 import com.example.burutoapp.domain.use_case.get_all_heroes.GetAllHeroesUseCase
+import com.example.burutoapp.domain.use_case.get_selected_hero.GetSelectedHeroUseCase
 import com.example.burutoapp.domain.use_case.read_onboarding.ReadOnBoardingUseCase
 import com.example.burutoapp.domain.use_case.save_onboarding.SaveOnBoardingUseCase
 import com.example.burutoapp.domain.use_case.search_heroes.SearchHeroesUseCase
@@ -34,7 +35,8 @@ object RepositoryModule{
             saveOnBoardingUseCase = SaveOnBoardingUseCase(repository),
             readOnBoardingUseCase = ReadOnBoardingUseCase(repository),
             getAllHeroesUseCase = GetAllHeroesUseCase(repository),
-            searchHeroesUseCase = SearchHeroesUseCase(repository)
+            searchHeroesUseCase = SearchHeroesUseCase(repository),
+            getSelectedHeroUseCase = GetSelectedHeroUseCase(repository)
         )
     }
 }
