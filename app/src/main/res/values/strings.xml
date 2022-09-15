@@ -13,4 +13,8 @@
     <string name="close_search_bar">Close Search Bar</string>
     <string name="info_box">Info Box</string>
     <string name="logo_icon">Logo Icon</string>
+    <string name="power">Power</string>
+    <string name="month">month</string>
+    <string name="birthday">Birthday</string>
+    <string name="about">About</string>
 </resources>
