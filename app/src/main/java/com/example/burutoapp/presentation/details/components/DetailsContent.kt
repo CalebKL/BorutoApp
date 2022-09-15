@@ -1,5 +1,6 @@
 package com.example.burutoapp.presentation.details.components
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -35,6 +36,9 @@ fun DetailsContent(
     val scaffoldState = rememberBottomSheetScaffoldState(
         bottomSheetState = rememberBottomSheetState(initialValue = BottomSheetValue.Expanded)
     )
+
+    val currentSheetFraction = scaffoldState.currentSheetFraction
+
     BottomSheetScaffold(
         scaffoldState = scaffoldState,
         sheetPeekHeight = SHEET_PEEK_HEIGHT,
@@ -45,6 +49,7 @@ fun DetailsContent(
             selectedHero?.let { hero ->
                 BackgroundContent(
                     heroImage = hero.image,
+                    imageFraction = currentSheetFraction,
                     onCloseClick = {
                         navController.popBackStack()
                     }
@@ -172,7 +177,7 @@ fun BackgroundContent(
         Image(
             modifier = Modifier
                 .fillMaxWidth()
-                .fillMaxHeight(fraction = imageFraction)
+                .fillMaxHeight(fraction = imageFraction + 0.4f)
                 .align(Alignment.TopStart),
             painter = painter,
             contentDescription = stringResource(id = R.string.hero_image),
@@ -195,6 +200,26 @@ fun BackgroundContent(
             }
         }
     }
+}
+
+@ExperimentalMaterialApi
+val BottomSheetScaffoldState.currentSheetFraction:Float
+    get() {
+        val fraction = bottomSheetState.progress.fraction
+        val targetValue = bottomSheetState.targetValue
+        val currentValue = bottomSheetState.currentValue
+
+        Log.d("Fraction", fraction.toString())
+        Log.d("Target", targetValue.toString())
+        Log.d("Current", currentValue.toString())
+
+        return when{
+            currentValue == BottomSheetValue.Collapsed && targetValue == BottomSheetValue.Collapsed ->1f
+            currentValue == BottomSheetValue.Expanded && targetValue == BottomSheetValue.Expanded ->0f
+            currentValue == BottomSheetValue.Collapsed && targetValue == BottomSheetValue.Expanded ->1f - fraction
+            currentValue == BottomSheetValue.Expanded && targetValue == BottomSheetValue.Collapsed ->1f + fraction
+            else -> fraction
+        }
 }
 @Preview(showBackground = true)
 @Composable
