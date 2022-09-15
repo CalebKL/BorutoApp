@@ -7,6 +7,7 @@ object Constants {
     const val HERO_REMOTE_KEYS_DATABASE_TABLE = "hero_remote_keys_table"
     const val ON_BOARDING_PAGES= 3
     const val CURRENT_PAGE = 2
+    const val ABOUT_MAX_LINES =7
     const val PREFERENCE_NAME = "preference_boruto"
     const val PREFERENCE_KEY = "onBoarding_completed"
     const val BASE_URL = "http://10.0.2.2:8080"

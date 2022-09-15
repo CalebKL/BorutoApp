@@ -6,6 +6,7 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -15,6 +16,7 @@ import androidx.navigation.NavHostController
 import com.example.burutoapp.domain.models.Hero
 import com.example.burutoapp.R
 import com.example.burutoapp.presentation.theme.*
+import com.example.burutoapp.util.Constants.ABOUT_MAX_LINES
 
 @ExperimentalMaterialApi
 @Composable
@@ -95,12 +97,41 @@ fun BottomSheetContent(
             )
         }
         Text(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .alpha(ContentAlpha.medium)
+                .padding(bottom = MEDIUM_PADDING),
             text = stringResource(R.string.about),
             color = contentColor,
             fontSize = MaterialTheme.typography.subtitle1.fontSize,
             fontWeight = FontWeight.Bold
         )
+        Text(
+            modifier = Modifier,
+            text = selectedHero.about,
+            color = contentColor,
+            fontSize = MaterialTheme.typography.body1.fontSize,
+            maxLines = ABOUT_MAX_LINES
+        )
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ){
+            OrderedList(
+                title = stringResource(R.string.family),
+                items = selectedHero.family ,
+                textColor = contentColor
+            )
+            OrderedList(
+                title = stringResource(R.string.abilities),
+                items = selectedHero.abilities ,
+                textColor = contentColor
+            )
+            OrderedList(
+                title = stringResource(R.string.nature_types),
+                items = selectedHero.natureTypes ,
+                textColor = contentColor
+            )
+        }
     }
 }
 
@@ -111,7 +142,7 @@ fun BottomSheetPreview() {
         id = 1,
         name = "Sasuke",
         image = "",
-        about = "ed3ed3d3",
+        about = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sodales lorem enim, a volutpat nibh molestie in. Maecenas ante mauris, sodales eu nulla nec, faucibus auctor elit. Cras est dolor",
         rating = 5.5,
         power = 92,
         month = "July",
