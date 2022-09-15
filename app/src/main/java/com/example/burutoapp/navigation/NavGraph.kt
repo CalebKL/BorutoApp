@@ -1,5 +1,6 @@
 package com.example.burutoapp.navigation
 
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
@@ -18,7 +19,7 @@ import com.example.burutoapp.presentation.welcome.WelcomeViewModel
 import com.example.burutoapp.util.Constants.DETAILS_ARGUMENTS_KEY
 import com.google.accompanist.pager.ExperimentalPagerApi
 
-
+@ExperimentalMaterialApi
 @ExperimentalPagerApi
 @ExperimentalCoilApi
 @Composable

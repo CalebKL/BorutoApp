@@ -1,5 +1,6 @@
 package com.example.burutoapp.presentation.details
 
+import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -29,6 +30,7 @@ class DetailsViewModel @Inject constructor(
             _selectedHero.value = heroId?.let {
                 useCases.getSelectedHeroUseCase(heroId = heroId)
             }
+//            _selectedHero.value?.name?.let { Log.d( "Hero", it) }
         }
     }
 
