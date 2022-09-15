@@ -12,4 +12,5 @@
     <string name="search_app_bar_icon">Search Icon</string>
     <string name="close_search_bar">Close Search Bar</string>
     <string name="info_box">Info Box</string>
+    <string name="logo_icon">Logo Icon</string>
 </resources>
