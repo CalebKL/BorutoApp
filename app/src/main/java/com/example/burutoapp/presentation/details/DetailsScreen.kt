@@ -17,5 +17,12 @@ fun DetailsScreen(
 ) {
     val detailsViewModel = hiltViewModel<DetailsViewModel>()
     val selectedHero by detailsViewModel.selectedHero.collectAsState()
-    DetailsContent(navController = navController, selectedHero = selectedHero)
+    val colorPalette by detailsViewModel.colorPalette
+
+    if (colorPalette.isNotEmpty()){
+        DetailsContent(navController = navController, selectedHero = selectedHero)
+    }else{
+        detailsViewModel.generateColorPalette()
+    }
+
 }
