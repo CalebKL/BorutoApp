@@ -29,6 +29,7 @@ import com.example.burutoapp.R
 import com.example.burutoapp.presentation.theme.*
 import com.example.burutoapp.util.Constants.ABOUT_MAX_LINES
 import com.example.burutoapp.util.Constants.BASE_URL
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @ExperimentalCoilApi
 @ExperimentalMaterialApi
@@ -48,6 +49,10 @@ fun DetailsContent(
         onDarkVibrant = colors["onDarkVibrant"]!!
     }
 
+    val systemUiController = rememberSystemUiController()
+    systemUiController.setStatusBarColor(
+        color = Color(parseColor(darkVibrant))
+    )
     val scaffoldState = rememberBottomSheetScaffoldState(
         bottomSheetState = rememberBottomSheetState(initialValue = BottomSheetValue.Expanded)
     )
