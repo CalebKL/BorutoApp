@@ -28,7 +28,8 @@ fun DetailsScreen(
     if (colorPalette.isNotEmpty()){
         DetailsContent(
             navController = navController,
-            selectedHero = selectedHero
+            selectedHero = selectedHero,
+            colors = colorPalette
         )
     }else{
         detailsViewModel.generateColorPalette()
