@@ -9,8 +9,7 @@ import com.example.burutoapp.navigation.Screen
 import com.example.burutoapp.presentation.splash.components.Splash
 
 @Composable
-fun SplashScreen(
-    navController: NavHostController) {
+fun SplashScreen(navController: NavHostController) {
     val splashViewModel =hiltViewModel<SplashViewModel>()
     val rotate = remember { Animatable(0f) }
 

@@ -1,6 +1,5 @@
 package com.example.burutoapp.data.paging_source
 
-import android.util.Log
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
@@ -10,8 +9,6 @@ import com.example.burutoapp.data.local.HeroDatabase
 import com.example.burutoapp.data.remote.BorutoApi
 import com.example.burutoapp.domain.models.Hero
 import com.example.burutoapp.domain.models.HeroRemoteKeys
-import java.text.SimpleDateFormat
-import java.util.*
 import javax.inject.Inject
 
 @ExperimentalPagingApi
