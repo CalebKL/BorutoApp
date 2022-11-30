@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/BurutoApp/app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.1" />
+        <entry key="..\:/BurutoApp/app/src/main/res/drawable/ic_bolt.xml" value="0.109" />
         <entry key="..\:/BurutoApp/app/src/main/res/drawable/ic_cake.xml" value="0.1385" />
         <entry key="..\:/BurutoApp/app/src/main/res/drawable/ic_calender.xml" value="0.1385" />
         <entry key="..\:/BurutoApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1415" />
@@ -11,6 +12,7 @@
         <entry key="..\:/BurutoApp/app/src/main/res/drawable/ic_network_error.xml" value="0.1385" />
         <entry key="..\:/BurutoApp/app/src/main/res/drawable/ic_placeholder.xml" value="0.1415" />
         <entry key="..\:/BurutoApp/app/src/main/res/drawable/ic_placeholder2.xml" value="0.1415" />
+        <entry key="..\:/BurutoApp/app/src/main/res/drawable/ic_search_document.xml" value="0.1385" />
       </map>
     </option>
   </component>

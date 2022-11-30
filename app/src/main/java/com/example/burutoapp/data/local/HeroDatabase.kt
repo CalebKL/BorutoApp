@@ -8,7 +8,7 @@ import com.example.burutoapp.data.local.dao.HeroRemoteKeysDao
 import com.example.burutoapp.domain.models.Hero
 import com.example.burutoapp.domain.models.HeroRemoteKeys
 
-@Database(entities = [Hero::class, HeroRemoteKeys::class], version = 1)
+@Database(entities = [Hero::class, HeroRemoteKeys::class], version = 1, exportSchema = false)
 @TypeConverters(DatabaseConverter::class)
 abstract class HeroDatabase: RoomDatabase() {
     abstract fun heroDao(): HeroDao

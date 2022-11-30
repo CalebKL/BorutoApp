@@ -54,7 +54,7 @@ fun DetailsContent(
         color = Color(parseColor(darkVibrant))
     )
     val scaffoldState = rememberBottomSheetScaffoldState(
-        bottomSheetState = rememberBottomSheetState(initialValue = BottomSheetValue.Expanded)
+        bottomSheetState = rememberBottomSheetState(initialValue = BottomSheetValue.Collapsed)
     )
 
     val currentSheetFraction = scaffoldState.currentSheetFraction

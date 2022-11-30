@@ -3,6 +3,7 @@ package com.example.burutoapp.data.local
 import androidx.room.TypeConverter
 import java.lang.StringBuilder
 
+
 class DatabaseConverter {
     private val separator = ","
 
