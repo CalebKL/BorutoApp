@@ -12,6 +12,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class SearchHeroesSourceTest {
+
     private lateinit var borutoApi: BorutoApi
 
     private lateinit var heroes:List<Hero>
