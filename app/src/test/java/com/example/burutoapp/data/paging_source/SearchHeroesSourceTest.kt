@@ -9,6 +9,7 @@ import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 
 class SearchHeroesSourceTest {
     private lateinit var borutoApi: BorutoApi
@@ -149,5 +150,37 @@ class SearchHeroesSourceTest {
                     )
                 )
             )
+        }
+
+    @OptIn(ExperimentalCoroutinesApi::class)
+    @Test
+    fun `search api with empty hero name,assert empty heroes list and LoadResult_Page`() =
+        runBlockingTest {
+            val heroesSource = SearchHeroesSource(borutoApi = borutoApi, query = "")
+            val loadResult = heroesSource.load(
+                PagingSource.LoadParams.Refresh(
+                    key = null,
+                    loadSize = 3,
+                    placeholdersEnabled = false
+                ))
+            val result = borutoApi.searchHeroById("").heroes
+            assertTrue { result.isEmpty() }
+            assertTrue { loadResult is PagingSource.LoadResult.Page }
+        }
+
+    @OptIn(ExperimentalCoroutinesApi::class)
+    @Test
+    fun `search api with non_existing hero name,assert empty heroes list and LoadResult_Page`() =
+        runBlockingTest {
+            val heroesSource = SearchHeroesSource(borutoApi = borutoApi, query = "Unknown")
+            val loadResult = heroesSource.load(
+                PagingSource.LoadParams.Refresh(
+                    key = null,
+                    loadSize = 3,
+                    placeholdersEnabled = false
+                ))
+            val result = borutoApi.searchHeroById("Unknown").heroes
+            assertTrue { result.isEmpty() }
+            assertTrue { loadResult is PagingSource.LoadResult.Page }
         }
 }
